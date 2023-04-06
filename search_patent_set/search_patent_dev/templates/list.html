@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block container %}
+<style>
+
+
+
+</style>
+<center><p class="font-weight-bold"><h4>Информационный поиск известного уровня техники</h4></p></center>
+
+<form  action="{% url 'filter'%}" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" name="q">
+        <button class="btn btn-outline-primary" type="submit" >Поиск</button>
+    </div>
+</form>
+
+{% for i in pages%}
+<div class="card" style=" border: none;">
+    <div class="card-body">
+        <!--    <h4 class="card-title pointer" onclick="document.location = '{% url 'detail' i.pk %}';">{{i.title}}</h4>-->
+        <h4 class="card-title pointer"><a href="{% url 'detail' i.pk %}">{{i.title}}</a></h4>
+        <h6 class="card-subtitle  text-muted " style="color ">{{i.country}} {{i.number}} {{i.mpk}} {{i.authors}}</h6>
+        <p class="card-text" style="padding: 0; margin: 0;">{{ i.asd.abstract | truncatechars:300 }}...</p>
+        <b>Публикация:</b> {{i.date}}
+    </div>
+</div>
+{% endfor%}
+
+
+<div class="mt-3">
+    {% if pages %}
+    {% include 'pagination.html' with page=pages %}
+    {% else %}
+    {% include 'pagination.html' with page=page %}
+    {% endif %}
+</div>
+
+{% endblock %}

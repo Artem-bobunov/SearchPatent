@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card">
+        <div class="card-body">
+            <div class="shadow-lg p-3 mb-3 bg-white rounded">
+
+                <div class="row ">
+                    <div class="col">
+
+                        <b>{{obj.title}}</b>
+                    </div>
+                    <div class="col-2">
+
+                        {{obj.country}} {{obj.number}} {{obj.mpk}}
+                    </div>
+                    <div class="col">
+
+                        <b>Авторы:</b> <br>{{obj.authors}}
+                    </div>
+                    <div class="col">
+
+                        <b>Дата публикации:</b> <br>{{obj.date}}
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="shadow-lg p-3  bg-white rounded">
+                        <b>Реферат</b> <br>
+                        {{obj.asd.abstract}}
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="shadow-lg p-3  bg-white rounded">
+                        <b>Формула изобретения</b> <br>
+                        {{obj.asd.claims}}
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="shadow-lg p-3  bg-white rounded">
+
+                        <b>Описание</b> <br>
+                        {{obj.asd.description}}
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="shadow-lg p-3  bg-white rounded">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ключевые фразы</th>
+                                <th>Секция</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for a in abs%}
+
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td> {{a}}</td>
+                                <td>Abstract</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock%}
