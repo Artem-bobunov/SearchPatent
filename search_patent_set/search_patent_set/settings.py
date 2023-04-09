@@ -80,9 +80,9 @@ DATABASES = {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME':'search_patent',
         'USER':'postgres',
-        'PASSWORD':'Root123!',
-        'HOST':'192.168.1.253',
-        'PORT':'5439',
+        'PASSWORD':'',
+        'HOST':'',
+        'PORT':'',
 
     }
 }
